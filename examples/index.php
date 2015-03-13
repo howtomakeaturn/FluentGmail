@@ -14,7 +14,7 @@
 
     $path = 'storage/token.json';
 
-    $token = $manager->token($path);
+    $token = file_get_contents($path);
 
     $clientManager = new GoogleClientManager(new Google_Client());
 
