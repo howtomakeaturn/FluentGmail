@@ -2,12 +2,13 @@
     require_once('vendor/autoload.php');
 
     use \Howtomakeaturn\AskGmail\Authenticator;
+    use \Howtomakeaturn\AskGmail\GoogleClientManager;
 
     $whoops = new \Whoops\Run;
     $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
     $whoops->register();
 
-    $authenticator = new Authenticator(new Google_Client());
+    $clientManager = new GoogleClientManager(new Google_Client());
 
     $config = [
         'clientId' => '198663035027-fucqv7fhr8co4svrfdosmlt0mm4jquev.apps.googleusercontent.com',  
@@ -21,8 +22,12 @@
         ]
     ];
 
-    $authenticator->setConfig($config);
-    
+    $clientManager->setConfig($config);
+
+    $client = $clientManager->getGoogleClient();
+
+    $authenticator = new Authenticator($client);
+
     $path = 'storage/token.json';
 
     $authenticator->processAndSaveToken($path);
