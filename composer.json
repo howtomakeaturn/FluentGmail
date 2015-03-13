@@ -5,5 +5,13 @@
     "keywords": ["google, gmail, polling"],
     "require": {
       "google/apiclient": "1.0.*@beta"
-    }
+    },
+    "require-dev": {
+      "filp/whoops": "1.1.4"
+    },
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    }    
 }

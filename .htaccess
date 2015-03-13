@@ -1,0 +1,2 @@
+RewriteEngine On
+RewriteRule oauth2callback oauth2callback.php [L]
