@@ -1,0 +1,9 @@
+{
+    "name": "howtomakeaturn/ask-gmail",
+    "type": "library",
+    "description": "Long polling your Gmail account.",
+    "keywords": ["google, gmail, polling"],
+    "require": {
+      "google/apiclient": "1.0.*@beta"
+    }
+}
