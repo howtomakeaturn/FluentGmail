@@ -1,2 +1,4 @@
 RewriteEngine On
-RewriteRule oauth2callback oauth2callback.php [L]
+RewriteRule oauth2callback examples/oauth2callback.php [L]
+RewriteRule auth examples/auth.php [L]
+RewriteRule index examples/index.php [L]
