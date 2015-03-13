@@ -2,7 +2,7 @@
     require_once('../vendor/autoload.php');
 
     use \Howtomakeaturn\AskGmail\Authenticator;
-    use \Howtomakeaturn\AskGmail\GoogleClientManager;
+    use \Howtomakeaturn\AskGmail\GoogleClientBuilder;
     use \Howtomakeaturn\AskGmail\Manager;
     use \Howtomakeaturn\AskGmail\QueryManager;
 
@@ -16,15 +16,9 @@
 
     $token = file_get_contents($path);
 
-    $clientManager = new GoogleClientManager(new Google_Client());
-
     $config = require('config.php');
-    
-    $clientManager->setConfig($config);
 
-    $clientManager->setAccessToken($token);        
-    
-    $client = $clientManager->getGoogleClient();
+    $client = GoogleClientBuilder::build($config, $token);
 
     $service = new Google_Service_Gmail($client);
     
