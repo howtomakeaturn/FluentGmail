@@ -34,4 +34,10 @@ class QueryManager
         return $histories;
     }    
 
+    function getProfile($service, $userId) 
+    {
+        return $service->users->getProfile($userId);
+    }
+
+
 }
