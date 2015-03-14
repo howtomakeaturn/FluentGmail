@@ -2,14 +2,23 @@
     require_once('../vendor/autoload.php');
 
     use \Howtomakeaturn\AskGmail\QueryManager;
+    use \Howtomakeaturn\AskGmail\Query\Draft;
+    use \Howtomakeaturn\AskGmail\Query\Profile;
 
     $client = require('_base.php');
     
-    $queryManager = new QueryManager(new Google_Service_Gmail($client));
+    $queryManager = new QueryManager(
+        new Draft(
+            new Google_Service_Gmail($client)
+        ),
+        new Profile(
+            new Google_Service_Gmail($client)
+        )
+    );
 
-    $profile = $queryManager->getProfile('me');
+    $profile = $queryManager->profile->get('me');
 
-    $drafts = $queryManager->listDrafts('me');
+    $drafts = $queryManager->draft->_list('me');
 
 ?>
 

@@ -3,11 +3,15 @@ namespace Howtomakeaturn\AskGmail;
 
 class QueryManager
 {
-    protected $service;
+    public $draft;
+    public $profile;
+    public $message;
     
-    public function __construct($service)
+    public function __construct($draft, $profile, $message)
     {
-        $this->service = $service;
+        $this->draft = $draft;
+        $this->profile = $profile;
+        $this->message = $message;
     }
 
     /*
@@ -30,52 +34,6 @@ class QueryManager
         } while ($pageToken);
 
         return $histories;
-    }    
-
-    function getProfile($userId) 
-    {
-        return $this->service->users->getProfile($userId);
     }
-
-    public function listDrafts($userId) {
-        $drafts = array();
-
-        $draftsResponse = $this->service->users_drafts->listUsersDrafts($userId);
-        if ($draftsResponse->getDrafts()) {
-            $drafts = array_merge($drafts, $draftsResponse->getDrafts());
-        }
-
-        return $drafts;
-    }
-
-    public function getDraft($user, $draftId) {
-        $draft = $this->service->users_drafts->get($user, $draftId);
-        return $draft;
-    }
-    
-    function listMessages($userId) {
-        $pageToken = NULL;
-        $messages = array();
-        $opt_param = array();
-
-        do {
-            if ($pageToken) {
-                $opt_param['pageToken'] = $pageToken;
-            }
-            $messagesResponse = $this->service->users_messages->listUsersMessages($userId, $opt_param);
-            if ($messagesResponse->getMessages()) {
-                $messages = array_merge($messages, $messagesResponse->getMessages());
-                $pageToken = $messagesResponse->getNextPageToken();
-            }
-        } while ($pageToken);
-
-        return $messages;
-
-    }
-
-    function getMessage($userId, $messageId) {
-        $message = $this->service->users_messages->get($userId, $messageId);
-        return $message;
-    }    
     
 }
