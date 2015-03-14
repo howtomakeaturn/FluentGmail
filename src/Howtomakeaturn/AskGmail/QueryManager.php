@@ -51,6 +51,26 @@ class QueryManager
     public function getDraft($user, $draftId) {
         $draft = $this->service->users_drafts->get($user, $draftId);
         return $draft;
+    }
+    
+    function listMessages($userId) {
+        $pageToken = NULL;
+        $messages = array();
+        $opt_param = array();
+
+        do {
+            if ($pageToken) {
+                $opt_param['pageToken'] = $pageToken;
+            }
+            $messagesResponse = $this->service->users_messages->listUsersMessages($userId, $opt_param);
+            if ($messagesResponse->getMessages()) {
+                $messages = array_merge($messages, $messagesResponse->getMessages());
+                $pageToken = $messagesResponse->getNextPageToken();
+            }
+        } while ($pageToken);
+
+        return $messages;
+
     }    
     
 }
