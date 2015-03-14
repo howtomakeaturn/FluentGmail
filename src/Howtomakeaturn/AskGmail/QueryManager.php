@@ -13,26 +13,21 @@ class QueryManager
     /*
      * TODO: how to get the fucking pageToken?
      */
-    function listHistory($userId, $startHistoryId) {
+    public function listHistory($userId, $startHistoryId) {
         $opt_param = array('startHistoryId' => $startHistoryId);
         $pageToken = NULL;
         $histories = array();
 
         do {
-            try {
-              if ($pageToken) {
+            if ($pageToken) {
                 $opt_param['pageToken'] = $pageToken;
-              }
-              $historyResponse = $this->service->users_history->listUsersHistory($userId, $opt_param);
-              if ($historyResponse->getHistory()) {
+            }
+            $historyResponse = $this->service->users_history->listUsersHistory($userId, $opt_param);
+            if ($historyResponse->getHistory()) {
                 $histories = array_merge($histories, $historyResponse->getHistory());
                 $pageToken = $historyResponse->getNextPageToken();
-              }
-            } catch (Exception $e) {
-              print 'An error occurred: ' . $e->getMessage();
             }
         } while ($pageToken);
-
 
         return $histories;
     }    
@@ -42,5 +37,14 @@ class QueryManager
         return $this->service->users->getProfile($userId);
     }
 
+    public function listDrafts($userId) {
+        $drafts = array();
 
+        $draftsResponse = $this->service->users_drafts->listUsersDrafts($userId);
+        if ($draftsResponse->getDrafts()) {
+            $drafts = array_merge($drafts, $draftsResponse->getDrafts());
+        }
+
+        return $drafts;
+    }
 }
