@@ -1,7 +1,7 @@
 <?php
 require_once('../vendor/autoload.php');
 
-use \Howtomakeaturn\AskGmail\GoogleClientBuilder;
+use \Howtomakeaturn\FluentGmail\GoogleClientBuilder;
 
 $whoops = new \Whoops\Run;
 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);

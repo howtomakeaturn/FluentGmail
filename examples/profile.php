@@ -1,7 +1,7 @@
 <?php
     require_once('../vendor/autoload.php');
 
-    use \Howtomakeaturn\AskGmail\FluentGmail;
+    use \Howtomakeaturn\FluentGmail\FluentGmail;
 
     $client = require('_base.php');
     

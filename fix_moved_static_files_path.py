@@ -40,7 +40,7 @@ def replace(file_path, pattern, subst):
     os.chmod(file_path, 0755)    
 
 root_path = '/home/howtomakeaturn/projects/ask-gmail-dev'
-templates_path = root_path + '/examples/'
+templates_path = root_path + '/'
 
 templates = []
 

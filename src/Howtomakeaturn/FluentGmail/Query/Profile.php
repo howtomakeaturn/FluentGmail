@@ -1,5 +1,5 @@
 <?php
-namespace Howtomakeaturn\AskGmail\Query;
+namespace Howtomakeaturn\FluentGmail\Query;
 
 class Profile extends Query
 {

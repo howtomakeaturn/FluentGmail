@@ -1,5 +1,5 @@
 <?php
-namespace Howtomakeaturn\AskGmail;
+namespace Howtomakeaturn\FluentGmail;
 /*
  * Google keep publishing poor libraries and documentations.
  * I keep make them better and fluent.

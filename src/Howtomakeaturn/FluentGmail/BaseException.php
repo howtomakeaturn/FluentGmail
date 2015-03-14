@@ -1,5 +1,5 @@
 <?php
-namespace Howtomakeaturn\AskGmail;
+namespace Howtomakeaturn\FluentGmail;
 
 use \Exception;
 

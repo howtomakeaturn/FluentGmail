@@ -1,7 +1,7 @@
 <?php
     require_once('../vendor/autoload.php');
 
-    use \Howtomakeaturn\AskGmail\Authenticator;
+    use \Howtomakeaturn\FluentGmail\Authenticator;
 
     $client = require('_base.php');
 
