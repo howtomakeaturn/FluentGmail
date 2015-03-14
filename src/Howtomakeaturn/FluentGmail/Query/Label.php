@@ -16,4 +16,9 @@ class Label extends Query
         return $labels;
     }
 
+    public function get($user, $labelId) {
+        $label = $this->service->users_labels->get($user, $labelId);
+        return $label;
+    }
+    
 }
