@@ -1,11 +1,11 @@
 <?php
     require_once('../vendor/autoload.php');
 
-    use \Howtomakeaturn\AskGmail\QueryManager;
+    use \Howtomakeaturn\AskGmail\FluentGmail;
     
     $client = require('_base.php');
     
-    $queryManager = QueryManager::build($client);
+    $queryManager = FluentGmail::build($client);
         
     $draft = $queryManager->draft->get('me', $_GET['id']);
 

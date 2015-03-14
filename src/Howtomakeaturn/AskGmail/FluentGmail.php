@@ -8,7 +8,7 @@ use \Google_Service_Gmail;
 /*
  * TODO: move to Query folder
  */
-class QueryManager
+class FluentGmail
 {
     public $draft;
     public $profile;
