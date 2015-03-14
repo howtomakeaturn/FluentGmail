@@ -1,6 +1,9 @@
 <?php
 namespace Howtomakeaturn\AskGmail;
-
+/*
+ * Google keep publishing poor libraries and documentations.
+ * I keep make them better and fluent.
+ */
 use \Google_Service_Gmail;
 /*
  * TODO: move to Query folder
