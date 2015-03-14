@@ -16,15 +16,8 @@ class Authenticator
         return $this->client->createAuthUrl();
     }
 
-    protected function accessToken(){
+    public function accessToken(){
         return $this->client->authenticate($_GET['code']);        
     }
-    
-    public function processAndSaveToken($file)
-    {
-        $accessToken = $this->accessToken();
-        
-        file_put_contents($file, $accessToken);        
-    }
-        
+            
 }

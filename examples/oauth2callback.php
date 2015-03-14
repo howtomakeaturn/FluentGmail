@@ -6,10 +6,12 @@
     $client = require('_base.php');
 
     $authenticator = new Authenticator($client);
+    
+    $token = $authenticator->accessToken();
 
     $path = 'storage/token.json';
 
-    $authenticator->processAndSaveToken($path);
+    file_put_contents($path, $token);
 
 ?>
 
