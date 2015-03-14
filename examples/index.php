@@ -6,3 +6,5 @@
 <hr />
 <a href='/list_messages'>Show Messages</a>
 <hr />
+<a href='/list_labels'>Show Labels</a>
+<hr />

@@ -14,13 +14,15 @@ class QueryManager
     public $profile;
     public $message;
     public $history;
+    public $label;
     
-    public function __construct($draft, $profile, $message, $history)
+    public function __construct($draft, $profile, $message, $history, $label)
     {
         $this->draft = $draft;
         $this->profile = $profile;
         $this->message = $message;
         $this->history = $history;
+        $this->label = $label;
     }
     
     static public function build($client)
@@ -36,6 +38,9 @@ class QueryManager
                 new Google_Service_Gmail($client)
             ),
             new Query\History(
+                new Google_Service_Gmail($client)
+            ),
+            new Query\Label(
                 new Google_Service_Gmail($client)
             )        
         );        
