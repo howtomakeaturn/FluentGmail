@@ -1,17 +1,16 @@
 <?php
     require_once('../vendor/autoload.php');
 
-    use \Howtomakeaturn\AskGmail\Manager;
     use \Howtomakeaturn\AskGmail\QueryManager;
-
+    
     $client = require('_base.php');
     
-    $queryManager = new QueryManager(new Google_Service_Gmail($client));
+    $queryManager = QueryManager::build($client);
+    
+    $profile = $queryManager->profile->get('me');
 
-    $profile = $queryManager->getProfile('me');
-
-    $histories = $queryManager->listHistory('me', $profile->historyId);
+    $histories = $queryManager->history->_list('me', $profile->historyId);
 
 ?>
 
-<?php echo var_dump($histories); ?>
+<?php echo var_dump($histories) ?>

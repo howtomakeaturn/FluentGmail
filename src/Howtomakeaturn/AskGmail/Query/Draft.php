@@ -1,14 +1,8 @@
 <?php
 namespace Howtomakeaturn\AskGmail\Query;
 
-class Draft
+class Draft extends Query
 {
-    protected $service;
-    
-    public function __construct($service)
-    {
-        $this->service = $service;
-    }
 
     public function get($user, $draftId) {
         $draft = $this->service->users_drafts->get($user, $draftId);

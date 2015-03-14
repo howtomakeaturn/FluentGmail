@@ -1,14 +1,8 @@
 <?php
 namespace Howtomakeaturn\AskGmail\Query;
 
-class Profile
+class Profile extends Query
 {
-    protected $service;
-    
-    public function __construct($service)
-    {
-        $this->service = $service;
-    }
 
     function get($userId) 
     {

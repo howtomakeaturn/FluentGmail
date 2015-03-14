@@ -1,14 +1,8 @@
 <?php
 namespace Howtomakeaturn\AskGmail\Query;
 
-class Message
+class Message extends Query
 {
-    protected $service;
-    
-    public function __construct($service)
-    {
-        $this->service = $service;
-    }
     
     function _list($userId) {
         $pageToken = NULL;
