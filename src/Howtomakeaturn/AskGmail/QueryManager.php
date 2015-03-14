@@ -47,4 +47,10 @@ class QueryManager
 
         return $drafts;
     }
+
+    public function getDraft($user, $draftId) {
+        $draft = $this->service->users_drafts->get($user, $draftId);
+        return $draft;
+    }    
+    
 }

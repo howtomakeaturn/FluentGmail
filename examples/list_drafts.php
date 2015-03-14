@@ -13,4 +13,9 @@
 
 ?>
 
+<?php foreach($drafts as $draft):?>
+    <a href='/get_draft?id=<?php echo $draft->getId() ?>'>Draft <?php echo $draft->getId() ?></a>
+    <hr />
+<?php endforeach; ?>
+<hr />
 <?php echo var_dump($drafts); ?>
