@@ -10,7 +10,10 @@ class QueryManager
         $this->service = $service;
     }
 
-    function listHistory($service, $userId, $startHistoryId) {
+    /*
+     * TODO: how to get the fucking pageToken?
+     */
+    function listHistory($userId, $startHistoryId) {
         $opt_param = array('startHistoryId' => $startHistoryId);
         $pageToken = NULL;
         $histories = array();
@@ -20,7 +23,7 @@ class QueryManager
               if ($pageToken) {
                 $opt_param['pageToken'] = $pageToken;
               }
-              $historyResponse = $service->users_history->listUsersHistory($userId, $opt_param);
+              $historyResponse = $this->service->users_history->listUsersHistory($userId, $opt_param);
               if ($historyResponse->getHistory()) {
                 $histories = array_merge($histories, $historyResponse->getHistory());
                 $pageToken = $historyResponse->getNextPageToken();
@@ -34,9 +37,9 @@ class QueryManager
         return $histories;
     }    
 
-    function getProfile($service, $userId) 
+    function getProfile($userId) 
     {
-        return $service->users->getProfile($userId);
+        return $this->service->users->getProfile($userId);
     }
 
 

@@ -2,3 +2,5 @@ RewriteEngine On
 RewriteRule oauth2callback examples/oauth2callback.php [L]
 RewriteRule auth examples/auth.php [L]
 RewriteRule index examples/index.php [L]
+RewriteRule profile examples/profile.php [L]
+RewriteRule history examples/history.php [L]
