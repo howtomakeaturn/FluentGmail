@@ -71,6 +71,11 @@ class QueryManager
 
         return $messages;
 
+    }
+
+    function getMessage($userId, $messageId) {
+        $message = $this->service->users_messages->get($userId, $messageId);
+        return $message;
     }    
     
 }
