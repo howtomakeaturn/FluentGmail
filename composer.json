@@ -1,8 +1,8 @@
 {
-    "name": "howtomakeaturn/ask-gmail",
+    "name": "howtomakeaturn/fluent-gmail",
     "type": "library",
-    "description": "Long polling your Gmail account.",
-    "keywords": ["google, gmail, polling"],
+    "description": "Fluent Gmail API interface.",
+    "keywords": ["google, gmail],
     "require": {
       "google/apiclient": "1.*"
     },
